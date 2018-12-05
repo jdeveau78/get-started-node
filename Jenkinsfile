@@ -23,7 +23,7 @@ node {
         }
     }
     stage('Deploy') {
-        sh """
+        bat """
        cat "kubernetes/deployment.yaml" | sed "s/<REGISTRY>/${MYREGISTRY}/g" | sed "s/<NAMESPACE>/${MYNAMESPACE}/g" | kubectl apply -n default -f  -
             """
     }
